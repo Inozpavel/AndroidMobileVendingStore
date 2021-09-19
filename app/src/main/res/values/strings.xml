@@ -1,3 +1,10 @@
 <resources>
     <string name="app_name">Online store</string>
+    <string name="add_to_cart">В корзину</string>
+    <string name="search_for_products">Поиск товаров</string>
+    <string name="tech_product_price">Цена товара</string>
+    <string name="tech_product_name">Название товара</string>
+    <string name="tech_product_description">Описание товара</string>
+    <string name="image_of_product">image of product</string>
+    <string name="like_button">like_button</string>
 </resources>
