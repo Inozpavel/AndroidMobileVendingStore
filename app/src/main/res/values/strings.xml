@@ -7,4 +7,8 @@
     <string name="tech_product_description">Описание товара</string>
     <string name="image_of_product">image of product</string>
     <string name="like_button">like_button</string>
+    <string name="usr_profile_text">Here will be user profile</string>
+    <string name="all_products">Все продукты</string>
+    <string name="all_liked_products">Лайкнутые продукты</string>
+    <string name="profile">Профиль</string>
 </resources>

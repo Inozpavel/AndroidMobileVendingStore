@@ -3,21 +3,29 @@
         xmlns:app="http://schemas.android.com/apk/res-auto"
         xmlns:tools="http://schemas.android.com/tools"
         android:id="@+id/nav_graph"
-        app:startDestination="@id/productsList">
+        app:startDestination="@id/navigation_products_list">
 
     <fragment
-            android:id="@+id/productsList"
+            android:id="@+id/navigation_products_list"
             android:name="com.example.onlinestore.Presentation.View.AllProducts"
-            android:label="party_list_fragment"
             tools:layout="@layout/all_products_fragment">
         <action
                 android:id="@+id/action_partyList_to_addParty"
-                app:destination="@id/productInformation" />
+                app:destination="@id/navigation_product_information" />
     </fragment>
 
     <fragment
-            android:id="@+id/productInformation"
+            android:id="@+id/navigation_product_information"
             android:name="com.example.onlinestore.Presentation.View.ProductInformation"
-            android:label="add_party_fragment"
             tools:layout="@layout/product_information_fragment" />
+
+    <fragment
+            android:id="@+id/navigation_products_liked"
+            android:name="com.example.onlinestore.Presentation.View.ProductsLiked"
+            tools:layout="@layout/fragment_products_liked" />
+    
+    <fragment
+            android:id="@+id/navigation_profile"
+            android:name="com.example.onlinestore.Presentation.View.Profile"
+            tools:layout="@layout/fragment_profile"/>
 </navigation>

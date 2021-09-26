@@ -1,22 +1,24 @@
 package com.example.onlinestore.Presentation.Repository;
 
-import com.example.onlinestore.Presentation.Repository.Abstractions.IProductRepository;
-import com.example.onlinestore.Presentation.Repository.Mock.ProductMockRepository;
+import android.app.Application;
+
+import com.example.onlinestore.Presentation.Repository.Abstractions.ILikedProductRepository;
+import com.example.onlinestore.Presentation.Repository.Mock.LikedProductMockRepository;
 
 public class UnitOfWork
 {
-    private static IProductRepository productRepository;
+    private static ILikedProductRepository productRepository;
 
-    public static void initProductRepository()
+    public static void initProductRepository(Application application)
     {
-        productRepository = new ProductMockRepository();
+        productRepository = new LikedProductRepository(application);
     }
 
-    public static IProductRepository GetProductRepository()
+    public static ILikedProductRepository GetProductRepository()
     {
         if (productRepository == null)
         {
-            productRepository = new ProductRepository();
+            productRepository = new LikedProductMockRepository();
         }
         return productRepository;
     }

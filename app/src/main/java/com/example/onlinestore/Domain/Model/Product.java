@@ -1,21 +1,22 @@
 package com.example.onlinestore.Domain.Model;
 
-import android.graphics.Bitmap;
-
-import java.util.ArrayList;
-
 public class Product
 {
     private String productName;
     private double price;
     private String description;
-    private ArrayList<Bitmap> images = new ArrayList<>();
+    private boolean isLiked;
+    
+    public Product()
+    {
+    }
 
-    public Product(String productName, double price, String description)
+    public Product(String productName, double price, String description, boolean isLiked)
     {
         this.productName = productName;
         this.price = price;
         this.description = description;
+        this.isLiked = isLiked;
     }
 
     //region getters and setters
@@ -49,14 +50,14 @@ public class Product
         this.description = description;
     }
 
-    public ArrayList<Bitmap> getImages()
+    public boolean getIsLiked()
     {
-        return images;
+        return isLiked;
     }
 
-    public void setImages(ArrayList<Bitmap> images)
+    public void setIsLiked(boolean isLiked)
     {
-        this.images = images;
+        this.isLiked = isLiked;
     }
     //endregion
 }
