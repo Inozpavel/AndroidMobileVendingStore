@@ -50,7 +50,6 @@ public class ProductsListAdapter extends RecyclerView.Adapter<ProductsListAdapte
         holder.binding.productDescription.setText(product.getDescription());
         holder.binding.productPrice.setText(String.valueOf(product.getPrice()));
 
-        holder.binding.isLiked.setText(String.valueOf(product.getIsLiked()));
         holder.itemView.setOnClickListener(v ->
                 onClickListener.onProductClick(product));
 

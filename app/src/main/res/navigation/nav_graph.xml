@@ -21,7 +21,7 @@
 
     <fragment
             android:id="@+id/navigation_products_liked"
-            android:name="com.example.onlinestore.Presentation.View.ProductsLiked"
+            android:name="com.example.onlinestore.Presentation.View.ProductsLikedView"
             tools:layout="@layout/fragment_products_liked" />
     
     <fragment

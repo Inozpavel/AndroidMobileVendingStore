@@ -39,8 +39,6 @@ public class LikedProductsListAdapter extends RecyclerView.Adapter<LikedProducts
         holder.binding.productDescription.setText(product.getDescription());
         holder.binding.productPrice.setText(String.valueOf(product.getPrice()));
 
-        holder.binding.isLiked.setText(String.valueOf(product.getIsLiked()));
-
         ProductInformationViewModel viewModel = new ProductInformationViewModel();
         viewModel.setProduct(product);
         holder.setViewModel(viewModel);

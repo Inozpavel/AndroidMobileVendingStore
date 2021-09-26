@@ -47,11 +47,6 @@
                     android:layout_height="wrap_content"
                     android:text="@string/tech_product_description" />
 
-            <TextView
-                    android:id="@+id/is_liked"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"/>
-
         </LinearLayout>
 
     </LinearLayout>
