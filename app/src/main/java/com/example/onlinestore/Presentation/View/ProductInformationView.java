@@ -13,12 +13,12 @@ import androidx.lifecycle.ViewModelProvider;
 import com.example.onlinestore.Presentation.ViewModel.ProductInformationViewModel;
 import com.example.onlinestore.databinding.ProductInformationFragmentBinding;
 
-public class ProductInformation extends Fragment
+public class ProductInformationView extends Fragment
 {
     private ProductInformationViewModel viewModel;
     private ProductInformationFragmentBinding binding;
 
-    public ProductInformation()
+    public ProductInformationView()
     {
     }
 

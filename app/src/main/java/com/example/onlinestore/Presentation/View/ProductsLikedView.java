@@ -20,7 +20,7 @@ import com.example.onlinestore.databinding.FragmentProductsLikedBinding;
 
 import java.util.List;
 
-public class ProductsLiked extends Fragment
+public class ProductsLikedView extends Fragment
 {
     private FragmentProductsLikedBinding binding;
     private LikedProductsViewModel viewModel;

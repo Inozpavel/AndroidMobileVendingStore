@@ -12,7 +12,7 @@ import android.view.ViewGroup;
 import com.example.onlinestore.databinding.FragmentProfileBinding;
 
 
-public class Profile extends Fragment
+public class ProfileView extends Fragment
 {
     private FragmentProfileBinding binding;
 

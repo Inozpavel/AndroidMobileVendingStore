@@ -20,12 +20,12 @@ import com.example.onlinestore.databinding.AllProductsFragmentBinding;
 
 import java.util.List;
 
-public class AllProducts extends Fragment
+public class AllProductsView extends Fragment
 {
     private AllProductsViewModel viewModel;
     private AllProductsFragmentBinding binding;
 
-    public AllProducts()
+    public AllProductsView()
     {
     }
 
@@ -41,7 +41,7 @@ public class AllProducts extends Fragment
                              Bundle savedInstanceState)
     {
         binding = AllProductsFragmentBinding.inflate(inflater, container, false);
-        binding.buttonShowAllProducts.setOnClickListener(AllProducts::onClick);
+        binding.buttonShowAllProducts.setOnClickListener(AllProductsView::onClick);
         binding.productListRecycler.setLayoutManager(new LinearLayoutManager(getContext()));
 
         viewModel = new ViewModelProvider(this).get(AllProductsViewModel.class);
