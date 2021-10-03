@@ -16,6 +16,7 @@ import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 
 import com.example.vendingstore.Presentation.ViewModel.ProfileViewModel;
+import com.example.vendingstore.R;
 import com.example.vendingstore.databinding.FragmentProfileBinding;
 
 public class ProfileView extends Fragment
@@ -33,16 +34,20 @@ public class ProfileView extends Fragment
 
         viewModel = new ViewModelProvider(this).get(ProfileViewModel.class);
 
-        SharedPreferences preferences = getActivity()
-                .getSharedPreferences(sharedPreferencesKey, Context.MODE_PRIVATE);
-        if (preferences != null)
+        Activity activity = getActivity();
+
+        if (activity != null)
         {
-            String image = preferences
+
+            String image = activity.getSharedPreferences(sharedPreferencesKey, Context.MODE_PRIVATE)
                     .getString(userImageKey, null);
 
             if (image != null)
             {
                 binding.imageViewUser.setImageURI(Uri.parse(image));
+            } else
+            {
+                binding.imageViewUser.setImageResource(R.drawable.nophoto);
             }
         }
 
@@ -57,30 +62,31 @@ public class ProfileView extends Fragment
 
         binding.imageViewUser.setOnClickListener(v ->
         {
-            Activity activity = getActivity();
-            getActivity().getActivityResultRegistry().register("key", new ActivityResultContracts.OpenDocument(), result ->
-            {
-                if (result == null)
-                {
-                    return;
-                }
+            Activity mainActivity = getActivity();
+            getActivity().getActivityResultRegistry().register("key",
+                    new ActivityResultContracts.OpenDocument(), result ->
+                    {
+                        if (result == null)
+                        {
+                            return;
+                        }
 
-                activity.getApplicationContext().getContentResolver().takePersistableUriPermission(
-                        result,
-                        Intent.FLAG_GRANT_READ_URI_PERMISSION);
+                        mainActivity.getApplicationContext().getContentResolver().takePersistableUriPermission(
+                                result,
+                                Intent.FLAG_GRANT_READ_URI_PERMISSION);
 
-                Uri uri = Uri.parse(result.toString());
-                binding.imageViewUser.setImageURI(uri);
+                        Uri uri = Uri.parse(result.toString());
+                        binding.imageViewUser.setImageURI(uri);
 
 
-                SharedPreferences sharedPreferences = getActivity()
-                        .getSharedPreferences(sharedPreferencesKey, Context.MODE_PRIVATE);
+                        SharedPreferences sharedPreferences = getActivity()
+                                .getSharedPreferences(sharedPreferencesKey, Context.MODE_PRIVATE);
 
-                SharedPreferences.Editor editor = sharedPreferences.edit();
-                editor.putString(userImageKey, result.toString());
-                editor.apply();
+                        SharedPreferences.Editor editor = sharedPreferences.edit();
+                        editor.putString(userImageKey, result.toString());
+                        editor.apply();
 
-            }).launch(new String[]{"image/*"});
+                    }).launch(new String[]{"image/*"});
 
         });
         return binding.getRoot();
