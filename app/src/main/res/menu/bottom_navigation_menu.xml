@@ -1,14 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
-    
+
     <item
             android:id="@+id/navigation_products_list"
-            android:title="@string/all_products"/>
+            android:title="@string/all_products"
+            android:icon="@drawable/main"
+            android:iconTintMode="src_in" />
     <item
             android:id="@+id/navigation_products_liked"
-            android:title="@string/all_liked_products"/>
+            android:title="@string/all_liked_products"
+            android:icon="@drawable/liked_products" />
 
     <item
             android:id="@+id/navigation_profile"
-            android:title="@string/profile"/>
+            android:title="@string/profile"
+            android:icon="@drawable/profile" />
 </menu>
