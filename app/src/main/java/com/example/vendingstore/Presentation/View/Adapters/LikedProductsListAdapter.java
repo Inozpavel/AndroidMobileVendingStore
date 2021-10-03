@@ -1,5 +1,7 @@
 package com.example.vendingstore.Presentation.View.Adapters;
 
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.view.LayoutInflater;
 import android.view.ViewGroup;
 
@@ -8,7 +10,9 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.vendingstore.Domain.Model.Product;
 import com.example.vendingstore.Presentation.ViewModel.ProductInformationViewModel;
+import com.example.vendingstore.R;
 import com.example.vendingstore.databinding.ProductLikedElementBinding;
+import com.google.gson.Gson;
 
 import java.util.List;
 
@@ -39,6 +43,17 @@ public class LikedProductsListAdapter extends RecyclerView.Adapter<LikedProducts
         holder.binding.productDescription.setText(product.getDescription());
         holder.binding.productPrice.setText(String.valueOf(product.getPrice()));
 
+        String image = product.getImage();
+        if (image != null)
+        {
+            Gson gson = new Gson();
+            byte[] bytes = gson.fromJson(image, byte[].class);
+            Bitmap bitmap = BitmapFactory.decodeByteArray(bytes, 0, bytes.length);
+            holder.binding.imageViewLikedProduct.setImageBitmap(bitmap);
+        } else
+        {
+            holder.binding.imageViewLikedProduct.setImageResource(R.drawable.nophoto);
+        }
         ProductInformationViewModel viewModel = new ProductInformationViewModel();
         viewModel.setProduct(product);
         holder.setViewModel(viewModel);

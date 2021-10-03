@@ -1,5 +1,7 @@
 package com.example.vendingstore.Presentation.View.Adapters;
 
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.view.LayoutInflater;
 import android.view.ViewGroup;
 
@@ -11,6 +13,7 @@ import com.example.vendingstore.Presentation.Repository.UnitOfWork;
 import com.example.vendingstore.Presentation.ViewModel.ProductInformationViewModel;
 import com.example.vendingstore.R;
 import com.example.vendingstore.databinding.ProductElementBinding;
+import com.google.gson.Gson;
 
 import java.util.List;
 
@@ -50,6 +53,17 @@ public class ProductsListAdapter extends RecyclerView.Adapter<ProductsListAdapte
         holder.binding.productDescription.setText(product.getDescription());
         holder.binding.productPrice.setText(String.valueOf(product.getPrice()));
 
+        String image = product.getImage();
+        if (image != null)
+        {
+            Gson gson = new Gson();
+            byte[] bytes = gson.fromJson(image, byte[].class);
+            Bitmap bitmap = BitmapFactory.decodeByteArray(bytes, 0, bytes.length);
+            holder.binding.imageViewProduct.setImageBitmap(bitmap);
+        } else
+        {
+            holder.binding.imageViewProduct.setImageResource(R.drawable.nophoto);
+        }
         holder.itemView.setOnClickListener(v ->
                 onClickListener.onProductClick(product));
 
