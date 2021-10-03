@@ -1,17 +1,21 @@
 package com.example.vendingstore.Domain.Model;
 
+import androidx.annotation.NonNull;
+
 public class Product
 {
-    private String productName;
+    @NonNull
+    private String productName = "Продукт";
     private double price;
     private String description;
     private boolean isLiked;
+    private String image;
     
     public Product()
     {
     }
 
-    public Product(String productName, double price, String description, boolean isLiked)
+    public Product(@NonNull String productName, double price, String description, boolean isLiked)
     {
         this.productName = productName;
         this.price = price;
@@ -20,12 +24,13 @@ public class Product
     }
 
     //region getters and setters
+    @NonNull
     public String getProductName()
     {
         return productName;
     }
 
-    public void setProductName(String productName)
+    public void setProductName(@NonNull String productName)
     {
         this.productName = productName;
     }
@@ -59,5 +64,16 @@ public class Product
     {
         this.isLiked = isLiked;
     }
+
+    public String getImage()
+    {
+        return image;
+    }
+
+    public void setImage(String image)
+    {
+        this.image = image;
+    }
+
     //endregion
 }

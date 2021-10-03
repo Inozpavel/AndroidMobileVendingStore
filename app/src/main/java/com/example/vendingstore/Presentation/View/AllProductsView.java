@@ -1,6 +1,5 @@
 package com.example.vendingstore.Presentation.View;
 
-import android.content.ContentResolver;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
