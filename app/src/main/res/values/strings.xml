@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Online store</string>
+    <string name="app_name">Vending store</string>
     <string name="add_to_cart">В корзину</string>
     <string name="search_for_products">Поиск товаров</string>
     <string name="tech_product_price">Цена товара</string>
