@@ -26,10 +26,6 @@ public class AllProductsView extends Fragment
     private AllProductsViewModel viewModel;
     private AllProductsFragmentBinding binding;
 
-    public AllProductsView()
-    {
-    }
-
     private static void onClick(View x)
     {
         NavController a = Navigation.findNavController(x);

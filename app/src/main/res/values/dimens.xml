@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="main_font_size">18sp</dimen>
+    <dimen name="header">20sp</dimen>
+    <dimen name="profile_top_margin">20dp</dimen>
+    <dimen name="profile_separator_height">1dp</dimen>
+</resources>

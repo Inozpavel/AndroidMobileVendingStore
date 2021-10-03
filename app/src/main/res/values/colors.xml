@@ -11,4 +11,6 @@
     <color name="blue">#f0000fff</color>
     <color name="gray">#ff939393</color>
     <color name="profile_hints_color">#757575</color>
+    <color name="gray_blue_3">#c5d9ec</color>
+    <color name="profile_separator_color">#c0c0c0</color>
 </resources>

@@ -17,4 +17,5 @@
     <string name="account_data">Данные аккаунта</string>
     <string name="gender">Пол</string>
     <string name="user_image">Изображение пользователя</string>
+    <string name="default_gender_text">Не указан</string>
 </resources>
