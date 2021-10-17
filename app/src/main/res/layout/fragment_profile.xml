@@ -8,7 +8,8 @@
     <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            android:paddingBottom="?android:actionBarSize">
 
         <LinearLayout
                 android:layout_width="match_parent"
@@ -70,7 +71,7 @@
                     android:textSize="@dimen/main_font_size"
                     android:textColor="@color/profile_hints_color" />
 
-            <TextView
+            <EditText
                     android:id="@+id/text_view_phone"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -91,8 +92,8 @@
                     android:textSize="@dimen/main_font_size"
                     android:textColor="@color/profile_hints_color" />
 
-            <TextView
-                    android:id="@+id/text_view_email"
+            <EditText
+                    android:id="@+id/edit_text_email"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:textSize="@dimen/main_font_size"
@@ -103,7 +104,7 @@
                     android:layout_height="@dimen/profile_separator_height"
                     android:background="@color/profile_separator_color" />
 
-            <TextView
+            <EditText
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/profile_top_margin"
@@ -144,6 +145,21 @@
                     android:layout_height="@dimen/profile_separator_height"
                     android:background="@color/profile_separator_color" />
 
+        </LinearLayout>
+
+        <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+            <Button
+                    android:id="@+id/button_save_changes"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginRight="20dp"
+                    android:layout_gravity="bottom|center"
+                    android:text="@string/Save"
+                    android:textAllCaps="false"/>
         </LinearLayout>
 
     </LinearLayout>

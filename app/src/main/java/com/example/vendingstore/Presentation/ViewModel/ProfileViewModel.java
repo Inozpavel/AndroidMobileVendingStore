@@ -11,14 +11,17 @@ import java.time.LocalDate;
 public class ProfileViewModel extends ViewModel
 {
     private MutableLiveData<User> data;
-
+    
+    
+    private String validatedEmail;
+    
     public ProfileViewModel()
     {
         data = new MutableLiveData<>();
         this.data = new MutableLiveData<>();
 
         User user = new User(
-                "iivanov@mail.ru",
+                "",
                 "Иван",
                 "Иванов",
                 "+7 (999) 999 99 99",
@@ -30,5 +33,25 @@ public class ProfileViewModel extends ViewModel
     public LiveData<User> getUser()
     {
         return data;
+    }
+
+    public MutableLiveData<User> getData()
+    {
+        return data;
+    }
+
+    public void setData(MutableLiveData<User> data)
+    {
+        this.data = data;
+    }
+
+    public String getValidatedEmail()
+    {
+        return validatedEmail;
+    }
+
+    public void setValidatedEmail(String validatedEmail)
+    {
+        this.validatedEmail = validatedEmail;
     }
 }
