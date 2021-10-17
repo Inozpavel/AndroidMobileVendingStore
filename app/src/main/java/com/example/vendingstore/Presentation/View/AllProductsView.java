@@ -18,14 +18,14 @@ import com.example.vendingstore.Presentation.Repository.UnitOfWork;
 import com.example.vendingstore.Presentation.View.Adapters.ProductsListAdapter;
 import com.example.vendingstore.Presentation.ViewModel.AllProductsViewModel;
 import com.example.vendingstore.R;
-import com.example.vendingstore.databinding.AllProductsFragmentBinding;
+import com.example.vendingstore.databinding.FragmentAllProductsBinding;
 
 import java.util.List;
 
 public class AllProductsView extends Fragment
 {
     private AllProductsViewModel viewModel;
-    private AllProductsFragmentBinding binding;
+    private FragmentAllProductsBinding binding;
 
     private static void onClick(View x)
     {
@@ -38,10 +38,10 @@ public class AllProductsView extends Fragment
                              ViewGroup container,
                              Bundle savedInstanceState)
     {
-        binding = AllProductsFragmentBinding.inflate(inflater, container, false);
+        binding = FragmentAllProductsBinding.inflate(inflater, container, false);
         binding.buttonShowAllProducts.setOnClickListener(AllProductsView::onClick);
         binding.productListRecycler.setLayoutManager(new LinearLayoutManager(getContext()));
-
+        
         viewModel = new ViewModelProvider(this).get(AllProductsViewModel.class);
 
         ProductsListAdapter.OnProductClickListener productClickListener = (product) ->

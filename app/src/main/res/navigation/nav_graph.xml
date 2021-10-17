@@ -8,7 +8,7 @@
     <fragment
             android:id="@+id/navigation_products_list"
             android:name="com.example.vendingstore.Presentation.View.AllProductsView"
-            tools:layout="@layout/all_products_fragment">
+            tools:layout="@layout/fragment_all_products">
         <action
                 android:id="@+id/action_partyList_to_addParty"
                 app:destination="@id/navigation_product_information" />
