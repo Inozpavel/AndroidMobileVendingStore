@@ -21,11 +21,9 @@ public class AllProductsViewModel extends ViewModel
     {
         products = new ArrayList<>();
 
-        List<Integer> existingProducts = UnitOfWork.GetProductRepository().getAllIds();
         for (int i = 0; i < 10; i++)
         {
             ProductDTO product = new ProductDTO(i, "Товар № " + i, (i + 1) * 100, null, false);
-            product.setIsLiked(existingProducts.stream().anyMatch(x -> x == product.getId()));
             products.add(product);
         }
 

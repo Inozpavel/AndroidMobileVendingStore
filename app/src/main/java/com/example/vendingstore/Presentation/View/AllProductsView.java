@@ -13,6 +13,8 @@ import androidx.navigation.Navigation;
 import androidx.recyclerview.widget.LinearLayoutManager;
 
 import com.example.vendingstore.Domain.Model.Product;
+import com.example.vendingstore.Presentation.Repository.Model.ProductDTO;
+import com.example.vendingstore.Presentation.Repository.UnitOfWork;
 import com.example.vendingstore.Presentation.View.Adapters.ProductsListAdapter;
 import com.example.vendingstore.Presentation.ViewModel.AllProductsViewModel;
 import com.example.vendingstore.R;
@@ -47,9 +49,18 @@ public class AllProductsView extends Fragment
 
         viewModel.getProducts().observe(getViewLifecycleOwner(),
                 (List<Product> productsList) ->
-                        binding.productListRecycler.setAdapter(new ProductsListAdapter(
-                                productsList,
-                                productClickListener)));
+                        UnitOfWork.GetProductRepository().getAllIds().observe(getViewLifecycleOwner(),
+                                ids ->
+                                {
+                                    for (Product product : productsList)
+                                    {
+                                        product.setIsLiked(ids.stream().anyMatch(x -> ((ProductDTO) product).getId() == x));
+                                    }
+                                    binding.productListRecycler.setAdapter(new ProductsListAdapter(
+                                            productsList,
+                                            productClickListener));
+                                }));
+
 
         return binding.getRoot();
     }

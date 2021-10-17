@@ -52,7 +52,7 @@ public class LikedProductMockRepository implements ILikedProductRepository
     }
 
     @Override
-    public List<Integer> getAllIds()
+    public LiveData<List<Integer>> getAllIds()
     {
         ArrayList<Integer> list = new ArrayList<>();
 
@@ -60,6 +60,10 @@ public class LikedProductMockRepository implements ILikedProductRepository
         {
             list.add(i * 2);
         }
-        return list;
+        
+        MutableLiveData<List<Integer>> mutableLiveData = new MutableLiveData();
+        
+        mutableLiveData.setValue(list);
+        return mutableLiveData;
     }
 }

@@ -29,5 +29,5 @@ public interface ILikedProductDAO
     ProductDTO getById(int id);
 
     @Query("SELECT id FROM liked_products")
-    List<Integer> getAllIds();
+    LiveData<List<Integer>> getAllIds();
 }

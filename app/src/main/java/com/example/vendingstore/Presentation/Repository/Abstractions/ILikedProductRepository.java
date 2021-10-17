@@ -11,5 +11,5 @@ public interface ILikedProductRepository
     <T extends Product> LiveData<List<T>> getAll();
     <T extends Product> void addOrUpdate(T product);
     <T extends Product> void delete(T product);
-    List<Integer> getAllIds();
+    LiveData<List<Integer>> getAllIds();
 }

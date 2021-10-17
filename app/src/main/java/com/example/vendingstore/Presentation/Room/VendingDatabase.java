@@ -32,7 +32,6 @@ public abstract class VendingDatabase extends RoomDatabase
                 {
                     INSTANCE = Room.databaseBuilder(context.getApplicationContext(),
                             VendingDatabase.class, "vending_store")
-                            .allowMainThreadQueries()
                             .build();
                 }
             }

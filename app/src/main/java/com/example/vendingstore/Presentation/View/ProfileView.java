@@ -78,7 +78,6 @@ public class ProfileView extends Fragment
                         Uri uri = Uri.parse(result.toString());
                         binding.imageViewUser.setImageURI(uri);
 
-
                         SharedPreferences sharedPreferences = getActivity()
                                 .getSharedPreferences(sharedPreferencesKey, Context.MODE_PRIVATE);
 

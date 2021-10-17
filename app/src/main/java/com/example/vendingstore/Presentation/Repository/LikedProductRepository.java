@@ -15,13 +15,13 @@ import java.util.concurrent.ExecutorService;
 
 public class LikedProductRepository implements ILikedProductRepository
 {
-    private final ExecutorService _databaseWriteExecutor;
+    private final ExecutorService _databaseExecutor;
     private final ILikedProductDAO productDAO;
 
     public LikedProductRepository(Application application)
     {
         VendingDatabase database = VendingDatabase.getDatabase(application);
-        _databaseWriteExecutor = VendingDatabase.getDatabaseWriteExecutor();
+        _databaseExecutor = VendingDatabase.getDatabaseWriteExecutor();
         productDAO = database.productDao();
     }
 
@@ -35,23 +35,25 @@ public class LikedProductRepository implements ILikedProductRepository
     {
         product.setIsLiked(true);
         ProductDTO productDTO = (ProductDTO) product;
-
-        ProductDTO existingProduct = productDAO.getById(productDTO.getId());
-        if (existingProduct == null)
+        _databaseExecutor.execute(() ->
         {
-            _databaseWriteExecutor.execute(() ->
-                    productDAO.add((ProductDTO) product));
-        } else
-        {
-            _databaseWriteExecutor.execute(() ->
-                    productDAO.update((ProductDTO) product));
-        }
+            ProductDTO existingProduct = productDAO.getById(productDTO.getId());
+            if (existingProduct == null)
+            {
+                _databaseExecutor.execute(() ->
+                        productDAO.add((ProductDTO) product));
+            } else
+            {
+                _databaseExecutor.execute(() ->
+                        productDAO.update((ProductDTO) product));
+            }
+        });
     }
 
     @Override
     public <T extends Product> void delete(T product)
     {
-        _databaseWriteExecutor.execute(() ->
+        _databaseExecutor.execute(() ->
                 {
                     ProductDTO productDTO = (ProductDTO) product;
                     productDAO.deleteById(productDTO.getId());
@@ -60,7 +62,7 @@ public class LikedProductRepository implements ILikedProductRepository
     }
 
     @Override
-    public List<Integer> getAllIds()
+    public LiveData<List<Integer>> getAllIds()
     {
         return productDAO.getAllIds();
     }
