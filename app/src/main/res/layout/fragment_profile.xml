@@ -71,7 +71,7 @@
                     android:textSize="@dimen/main_font_size"
                     android:textColor="@color/profile_hints_color" />
 
-            <EditText
+            <TextView
                     android:id="@+id/text_view_phone"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -99,12 +99,7 @@
                     android:textSize="@dimen/main_font_size"
                     android:textColor="@color/black" />
 
-            <View
-                    android:layout_width="match_parent"
-                    android:layout_height="@dimen/profile_separator_height"
-                    android:background="@color/profile_separator_color" />
-
-            <EditText
+            <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/profile_top_margin"
